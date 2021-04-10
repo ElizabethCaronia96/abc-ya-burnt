@@ -1,6 +1,4 @@
-import importlib
-projectnickname = importlib.import_module("abc-ya-burnt")
-from projectnickname.app import projectnickname
+from bachapp.app import bachapp
 
 if __name__ == "__main__":
-    projectnickname.run()
+    bachapp.run()

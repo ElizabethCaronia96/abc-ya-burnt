@@ -1,1 +1,1 @@
-web: gunicorn wsgi:abc-ya-burnt
+web: gunicorn wsgi:bachapp
