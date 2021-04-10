@@ -1,4 +1,6 @@
-from abc-ya-burnt.app import abc-ya-burnt
+import importlib
+projectnickname = importlib.import_module("abc-ya-burnt")
+from projectnickname.app import projectnickname
 
 if __name__ == "__main__":
-    abc-ya-burnt.run()
+    projectnickname.run()
