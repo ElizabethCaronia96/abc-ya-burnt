@@ -1,4 +1,4 @@
-from bachapp.main import bachapp
+from main import app
 
 if __name__ == "__main__":
-    bachapp.run()
+    app.run()
