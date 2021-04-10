@@ -1,1 +1,1 @@
-web: gunicorn wsgi:bachapp
+web: gunicorn main:index
