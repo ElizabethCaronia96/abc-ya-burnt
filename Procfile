@@ -1,1 +1,1 @@
-web: gunicorn abc-ya-burnt.wsgi
+web: gunicorn wsgi:abc-ya-burnt
