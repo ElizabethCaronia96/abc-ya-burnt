@@ -6,3 +6,5 @@ MarkupSafe==1.1.1
 Werkzeug==1.0.1
 gunicorn
 pynginx
+django
+django-heroku
