@@ -1,25 +1,25 @@
 from flask import Flask, request, jsonify
+import numbers
+from ModelServiceInterface import ask_for_probability
 app = Flask(__name__)
 
-@app.route('/first', methods=['GET'])
+@app.route('/tell', methods=['GET'])
 def respond():
     # Retrieve the name from url parameter
-    name = request.args.get("name", None)
-
-    # For debugging
-    print(f"got name {name}")
-
+    acceptable_risk = request.args.get("ar", 0)
     response = {}
-
+    print(f"ar {acceptable_risk}")
     # Check if user sent a name at all
-    if not name:
+    if not acceptable_risk:
         response["ERROR"] = "no name found, please send a name."
     # Check if the user entered a number not a name
-    elif str(name).isdigit():
-        response["ERROR"] = "name can't be numeric."
+    elif not str(acceptable_risk).isnumeric():
+        response["ERROR"] = f"risk must be numeric. {acceptable_risk}"
     # Now the user entered a valid name
     else:
-        response["MESSAGE"] = f"Welcome {name} to our awesome platform!!"
+        acceptable_risk = float(acceptable_risk)
+        calculated_risk = ask_for_probability(acceptable_risk)
+        response["MESSAGE"] = f"Welcome {calculated_risk} to our awesome platform!!"
 
     # Return the response in json format
     return jsonify(response)
