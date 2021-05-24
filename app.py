@@ -1,6 +1,5 @@
 from flask import Flask, request, jsonify
-import numbers
-from ModelServiceInterface import ask_for_probability
+from markov1 import markov1
 app = Flask(__name__)
 
 @app.route('/tell', methods=['GET'])
@@ -18,7 +17,7 @@ def respond():
     # Now the user entered a valid name
     else:
         acceptable_risk = float(acceptable_risk)
-        calculated_risk = ask_for_probability(acceptable_risk)
+        calculated_risk = markov1.ask_for_probability(acceptable_risk)
         response["MESSAGE"] = f"Welcome {calculated_risk} to our awesome platform!!"
 
     # Return the response in json format
